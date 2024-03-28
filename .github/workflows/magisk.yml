@@ -132,7 +132,7 @@ jobs:
           sudo mkdir -pm755 /etc/apt/keyrings
           sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
           sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources
-          sudo apt-get update && sudo apt-get full-upgrade -y && sudo apt install --install-recommends setools lzip qemu-utils winehq-staging wine-staging winetricks patchelf attr -y
+          sudo apt-get update && sudo apt-get full-upgrade -y && sudo apt install --install-recommends setools lzip qemu-utils winehq-staging wine-staging winetricks patchelf attr wine-staging-i386 -y
           wget -qO- "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/archive/$GITHUB_REF.tar.gz" | sudo tar --wildcards -zxvf- -C ~ --strip-component=2 '*/wine/*' '*/linker/*'
       - name: Download WSA
         shell: python
